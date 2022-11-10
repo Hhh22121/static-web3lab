@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Web3Lab" />
+    <meta name="description" content="Web3Lab" />
+    <link rel="apple-touch-icon" href="assets/images/logo.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <link href="https://fonts.cdnfonts.com/css/future-earth" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/OwlCarousel2/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/plugins/OwlCarousel2/assets/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <title>Web3Lab</title>
+  </head>
+  <style>
+    .sp-loading {
+      background: #061037 !important;
+      position: fixed;
+      z-index: 999999;
+      top: 0;
+      left: 0;
+      user-select: none;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sp-loading .element {
+      width: 50px;
+      height: 50px;
+      background: white;
+      position: absolute;
+      left: 50%;
+      margin-left: -25px;
+      top: 50%;
+      margin-top: -25px;
+    }
+
+    .sp-loading .loading {
+      font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      top: 50%;
+      margin-top: 25px;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+    @-webkit-keyframes translateIn {
+      30% {
+        -webkit-transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg)
+          translateZ(20px) scale(0.95);
+        opacity: 0.25;
+      }
+
+      100% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg)
+          translateZ(0px) scale(0.85);
+        opacity: 0;
+      }
+    }
+
+    @keyframes translateIn {
+      30% {
+        -webkit-transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg)
+          translateZ(20px) scale(0.95);
+        transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) translateZ(20px)
+          scale(0.95);
+        opacity: 0.25;
+      }
+
+      100% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg)
+          translateZ(0px) scale(0.85);
+        transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg) translateZ(0px)
+          scale(0.85);
+        opacity: 0;
+      }
+    }
+
+    .sp-loading .element {
+      opacity: 0;
+    }
+
+    .sp-loading .element:nth-of-type(1) {
+      -webkit-transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg)
+        translateZ(30px);
+      transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg) translateZ(30px);
+      -webkit-animation: translateIn 1.5s ease-in infinite 500ms;
+      animation: translateIn 1.5s ease-in infinite 500ms;
+    }
+
+    .sp-loading .element:nth-of-type(2) {
+      -webkit-transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg)
+        translateZ(60px);
+      transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg) translateZ(60px);
+      -webkit-animation: translateIn 1.5s ease-in infinite 700ms;
+      animation: translateIn 1.5s ease-in infinite 700ms;
+    }
+
+    .sp-loading .element:nth-of-type(3) {
+      -webkit-transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg)
+        translateZ(90px);
+      transform: rotateX(70deg) rotateY(0deg) rotateZ(45deg) translateZ(90px);
+      -webkit-animation: translateIn 1.5s ease-in infinite 800ms;
+      animation: translateIn 1.5s ease-in infinite 800ms;
+    }
+
+    @-webkit-keyframes scaleIn {
+      80% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg)
+          scale(1.25);
+        opacity: 0.1;
+      }
+
+      100% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg) scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes scaleIn {
+      80% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg)
+          scale(1.25);
+        transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg) scale(1.25);
+        opacity: 0.1;
+      }
+
+      100% {
+        -webkit-transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg) scale(1);
+        transform: rotateX(65deg) rotateY(0deg) rotateZ(45deg) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .sp-loading .large-square {
+      width: 70px;
+      height: 70px;
+      background: white;
+      position: absolute;
+      left: 50%;
+      margin-left: -35px;
+      top: 50%;
+      margin-top: -35px;
+      -webkit-transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) scale(0);
+      transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) scale(0);
+      opacity: 0;
+      -webkit-animation: scaleIn 3s linear infinite 500ms;
+      animation: scaleIn 3s linear infinite 500ms;
+    }
+  </style>
+
+  <body class="sm-homepage">
+    <div class="sp-loading" id="SPLoading">
+      <div class="element"></div>
+      <div class="element"></div>
+      <div class="element"></div>
+      <div class="loading mt-2">Loading…</div>
+      <div class="large-square"></div>
+    </div>
+    <nav class="sm-navbar navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="sm-navbar-brand navbar-brand" href="index.html">
+          <img src="assets/images/web3lab/logo.png" alt="Web3Lab" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSM"
+          aria-controls="navbarSMContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- end header -->
+
+    <main>
+      <section class="sm-section sm-section-banner" id="home">
+        <div class="sm-section-banner-inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="sm-banner-text">
+                  <h1>
+                    ACCELERATING <br />
+                    THE ADOPTION OF
+                  </h1>
+                  <div>
+                    <img
+                      src="assets/images/web3lab/web3.png"
+                      style="width: 65%"
+                      alt="Web3Lab"
+                    />
+                  </div>
+                  <div
+                    class="sm-banner-cta d-flex flex-wrap justify-content-md-start justify-content-center align-items-center my-4"
+                  >
+                    <span>
+                      Web3Lab is a group of volunteers and technology <br />
+                      enthusiasts that empower the Future of Web3</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div
+                  class="sm-banner-logo d-flex flex-wrap justify-content-md-start justify-content-center align-items-center"
+                >
+                  <img src="assets/images/web3lab/BigLogo.png" alt="Web3Lab" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- end banner -->
+
+      <section class="sm-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-1 mt-lg-0 mt-4 text-center">
+              <img
+                src="assets/images/web3lab/computer.png"
+                class="img-fluid"
+                alt="Detail Token"
+              />
+            </div>
+            <div class="col-lg-6 order-2 order-lg-2 text-center">
+              <div class="sm-banner-text">
+                <div
+                  class="sm-computer-cta d-flex flex-wrap justify-content-sm-start justify-content-sm-start align-items-center"
+                  style="margin-right: 60px"
+                >
+                  <img
+                    src="assets/images/web3lab/main-ourvison.png"
+                    alt="ourvison"
+                  />
+                </div>
+                <div
+                  class="sm-computer-cta d-flex flex-wrap justify-content-sm-start justify-content-sm-start align-items-center"
+                >
+                  <img src="assets/images/web3lab/main-&.png" alt="mission" />
+                  <img
+                    src="assets/images/web3lab/main-mission.png"
+                    alt="mission"
+                  />
+                </div>
+                <div
+                  class="sm-computer-cta d-flex flex-wrap justify-content-sm-start justify-content-sm-start align-items-center my-4"
+                >
+                  <span>
+                    We do believe that Web3 will be the future of the <br />
+                    internet but the transition and mass adoption will not
+                    <br />
+                    be easy. Our mission is to help people to access Web3 <br />
+                    easily and bring Web3 to their daily life.</span
+                  >
+                </div>
+                <div
+                  class="sm-computer-cta d-flex flex-wrap justify-content-sm-start justify-content-sm-start align-items-center"
+                  style="margin-right: 185px"
+                >
+                  <img
+                    src="assets/images/web3lab/part-of-the-mission.png"
+                    alt="mission"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sm-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 order-1 order-lg-2 mt-lg-0 mt-4 text-center">
+              <img
+                src="assets/images/web3lab/Rectangle.png"
+                alt="phone"
+                class="phone"
+                style="position: relative; z-index: -1"
+              />
+            </div>
+            <div class="col-lg-5 order-2 order-lg-1">
+              <div class="sm-banner-phone">
+                <div style="margin-bottom: 10px">
+                  <img
+                    src="assets/images/web3lab/main-we-are.png"
+                    alt="ourvison"
+                  />
+                </div>
+                <div style="margin-bottom: 20px">
+                  <img
+                    class="mission"
+                    src="assets/images/web3lab/main-building.png"
+                    alt="mission"
+                  />
+                </div>
+                <div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      Web3 Wallet
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      NFT & Asset management
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      P2P communication protocol & Application
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      Decentralized Digital ID
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      Decentralized Autonomous Organization platform
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      Crypto Currency and Tokenomics
+                    </span>
+                  </div>
+                  <div class="sm-phone-cta">
+                    <span>
+                      <img
+                        src="./assets/images/web3lab/icon-listitem.png"
+                        alt="main-building"
+                        style="margin-right: 5px"
+                      />
+                      Dapp & tools
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <img
+        class="bg-shadow"
+        src="./assets/images/web3lab/shadow-building.png"
+        alt="bg"
+        style="width: 100%"
+      />
+      <section>
+        <div class="supporting">
+          <img
+            class="logo"
+            src="./assets/images/web3lab/support.png"
+            alt="logo"
+            style="width: 100%"
+          />
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <div
+          class="justify-content-between mb-4 row"
+          style="border-bottom: 1px solid white"
+        >
+          <div class="col-lg-3">
+            <div class="sm-footer-info text-lg-start text-center mb-lg-0 mb-3">
+              <div class="sm-footer-logo">
+                <img src="assets/images/web3lab/logo.png" />
+              </div>
+              <p style="color: white">Empower the future of the Internet</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="sm-footer-menu">
+                  <div class="sm-footer-menu-heading">
+                    <img src="assets/images/web3lab/footer-web3lab.png" />
+                  </div>
+                  <ul>
+                    <li><a href="#" target="_blank">Blog</a></li>
+                    <li><a href="#" target="_blank">Projects</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="sm-footer-menu">
+                  <div class="sm-footer-menu-heading">
+                    <img src="assets/images/web3lab/footer-follow.png" />
+                  </div>
+                  <ul>
+                    <li><a href="/">Github</a></li>
+                    <li><a href="/">LinkedIn</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="sm-footer-menu">
+                  <div class="sm-footer-menu-heading">
+                    <img src="assets/images/web3lab/footer-legal.png" />
+                  </div>
+                  <ul>
+                    <li><a href="/"> Privacy Policy</a></li>
+                    <li><a href="/">Terms & Conditions</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div
+              class="sm-footer-socials text-lg-start text-center mb-lg-0 mb-3"
+            >
+              <a href="#" target="_blank" class="me-3">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.5299 12.4663C22.2368 12.4663 22.8099 11.8932 22.8099 11.1863C22.8099 10.4793 22.2368 9.90625 21.5299 9.90625C20.823 9.90625 20.2499 10.4793 20.2499 11.1863C20.2499 11.8932 20.823 12.4663 21.5299 12.4663Z"
+                    fill="#B0B8BF"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.6718 16.6615C10.6718 19.6028 13.0638 21.9948 16.0051 21.9948C18.9465 21.9948 21.3385 19.6028 21.3385 16.6615C21.3385 13.7201 18.9465 11.3281 16.0051 11.3281C13.0638 11.3281 10.6718 13.7201 10.6718 16.6615ZM13.3437 16.6667C13.3437 15.196 14.5397 14 16.0103 14C17.481 14 18.677 15.196 18.677 16.6667C18.677 18.1373 17.481 19.3333 16.0103 19.3333C14.5397 19.3333 13.3437 18.1373 13.3437 16.6667Z"
+                    fill="#B0B8BF"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.6666 27.3333H21.3333C24.0746 27.3333 26.6666 24.7413 26.6666 22V11.3333C26.6666 8.592 24.0746 6 21.3333 6H10.6666C7.92525 6 5.33325 8.592 5.33325 11.3333V22C5.33325 24.7413 7.92525 27.3333 10.6666 27.3333ZM7.99992 11.3333C7.99992 10.0867 9.41992 8.66667 10.6666 8.66667H21.3333C22.5799 8.66667 23.9999 10.0867 23.9999 11.3333V22C23.9999 23.2467 22.5799 24.6667 21.3333 24.6667H10.6666C9.39592 24.6667 7.99992 23.2707 7.99992 22V11.3333Z"
+                    fill="#B0B8BF"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" target="_blank" class="me-3">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.3638 26.6666L13.3333 17.3333H9.33325V13.3333H13.3333V10.6666C13.3333 7.06771 15.5619 5.33331 18.7724 5.33331C20.3103 5.33331 21.632 5.44781 22.0172 5.49898V9.26007L19.7905 9.26109C18.0445 9.26109 17.7064 10.0908 17.7064 11.3083V13.3333H22.6666L21.3333 17.3333H17.7064V26.6666H13.3638Z"
+                    fill="#B0B8BF"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" target="_blank" class="me-3">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M10.0283 27.0842H5.22827V12.6842H10.0283V27.0842Z"
+                    fill="#B0B8BF"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M7.614 9.48433H7.58673C6.15431 9.48433 5.22827 8.41717 5.22827 7.0835C5.22827 5.72162 6.18251 4.68433 7.64212 4.68433C9.10172 4.68433 10.0006 5.72162 10.0283 7.0835C10.0283 8.41717 9.10172 9.48433 7.614 9.48433Z"
+                    fill="#B0B8BF"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M27.6279 27.0838H22.9112V19.5567C22.9112 17.6661 22.2287 16.376 20.5211 16.376C19.218 16.376 18.4418 17.2457 18.1009 18.0857C17.9762 18.3868 17.9456 18.8063 17.9456 19.2267V27.0842H13.2281C13.2281 27.0842 13.2903 14.3351 13.2281 13.0149H17.9456V15.0077C18.5716 14.0497 19.6928 12.6842 22.1972 12.6842C25.3011 12.6842 27.6281 14.6954 27.6281 19.0169L27.6279 27.0838Z"
+                    fill="#B0B8BF"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" target="_blank">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.3385 11.6321L16.3876 12.4395L15.5687 12.3407C12.5879 11.9617 9.98385 10.6765 7.77283 8.51794L6.69189 7.44692L6.41346 8.23783C5.82386 10.0009 6.20055 11.8628 7.42889 13.1151C8.08401 13.8071 7.93661 13.906 6.80653 13.4941C6.41346 13.3623 6.06953 13.2634 6.03677 13.3128C5.92212 13.4282 6.31519 14.9276 6.62637 15.5208C7.0522 16.3446 7.92023 17.152 8.87015 17.6299L9.67267 18.0089L8.72275 18.0253C7.80559 18.0253 7.77283 18.0418 7.8711 18.3878C8.19866 19.4588 9.49251 20.5958 10.9338 21.0901L11.9492 21.4361L11.0648 21.9634C9.75456 22.7213 8.21503 23.1498 6.67551 23.1827C5.9385 23.1992 5.33252 23.2651 5.33252 23.3145C5.33252 23.4793 7.33063 24.402 8.49346 24.7645C11.982 25.8356 16.1256 25.3742 19.2374 23.5452C21.4484 22.2435 23.6594 19.6566 24.6912 17.152C25.2481 15.8174 25.8049 13.3787 25.8049 12.2089C25.8049 11.4509 25.8541 11.352 26.7712 10.4458C27.3117 9.91851 27.8194 9.34181 27.9177 9.17703C28.0814 8.86397 28.0651 8.86397 27.2298 9.14408C25.8377 9.6384 25.6411 9.57249 26.329 8.83101C26.8367 8.30374 27.4427 7.34806 27.4427 7.06795C27.4427 7.01851 27.197 7.1009 26.9186 7.2492C26.6238 7.41397 25.9687 7.66113 25.4774 7.80942L24.593 8.08954L23.7904 7.54579C23.3482 7.2492 22.7259 6.91965 22.3983 6.82079C21.563 6.59011 20.2856 6.62306 19.5322 6.8867C17.4849 7.62817 16.1911 9.53954 16.3385 11.6321Z"
+                    fill="#B0B8BF"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="sm-footer-copyright text-lg-end text-center">
+              © 2022 Web3Lab™. All Rights Reserved
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="sm-footer-copyright text-lg-end text-center">
+              Contact: hello@web3lab.network
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/plugins/jQuery/jquery.min.js"></script>
+    <script src="assets/plugins/OwlCarousel2/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

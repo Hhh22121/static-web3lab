@@ -1,0 +1,80 @@
+.sm-footer-info {
+    font-family: "Inter";
+    font-size: 14px;
+    line-height: 32px;
+    color: #e0dff0;
+}
+
+.sm-footer-logo {
+    margin-bottom: 10px;
+}
+
+.sm-footer-menu {
+    margin-bottom: 24px;
+}
+
+.sm-footer-menu-heading {
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #FFFFFF;
+    margin-bottom: 26px;
+}
+
+.sm-footer-menu ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.sm-footer-menu ul li:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+@media(max-width:767px) {
+    .sm-footer-menu-heading {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .sm-footer-menu ul li {
+        margin-bottom: 8px !important;
+        text-align: center;
+    }
+    .sm-footer-menu ul li:last-child {
+        margin-bottom: 15px !important;
+    }
+}
+
+.sm-footer-menu ul li a {
+    font-family: "Inter";
+    font-size: 14px;
+    line-height: 20px;
+    color: #e1e1ec;
+    transition: all ease-in-out .3s;
+    text-decoration: none;
+}
+
+.sm-footer-menu ul li a:hover {
+    color: #fff;
+}
+
+.sm-footer-socials a {
+    text-decoration: none;
+}
+
+.sm-footer-socials a svg path {
+    transition: all ease-in-out .3s;
+}
+
+.sm-footer-socials a:hover svg path {
+    fill: #fff;
+}
+
+.sm-footer-copyright {
+    font-family: Inter;
+    font-size: 14px;
+    line-height: 32px;
+    letter-spacing: 0.02em;
+    color: #f5f8fa;
+}
